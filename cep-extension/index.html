@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" style="background-color: #1e1e24;">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>After Effects MCP Bridge</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body style="background-color: #1e1e24;">
+  <div class="panel-container">
+    <header class="panel-header">
+      <div class="brand-row">
+        <div class="title-group">
+          <h1>After Effects MCP Bridge</h1>
+          <span class="subtitle">Adobe After Effects 2018 - 2025+ (CSXS 8+)</span>
+        </div>
+        <div id="connection-badge" class="badge badge-disconnected">Disconnected</div>
+      </div>
+    </header>
+
+    <section class="card status-card">
+      <div class="card-header">
+        <h2>Bridge &amp; Host Status</h2>
+        <div class="btn-group">
+          <button id="btn-refresh-host" class="btn btn-secondary" title="Query After Effects ExtendScript host">Test Host</button>
+          <button id="btn-reconnect" class="btn btn-primary" title="Reload token and reconnect to local MCP bridge">Reconnect</button>
+        </div>
+      </div>
+      <div class="status-grid">
+        <div class="status-item">
+          <span class="label">Bridge Endpoint</span>
+          <span id="val-endpoint" class="value mono">127.0.0.1:17892</span>
+        </div>
+        <div class="status-item">
+          <span class="label">Auth Token</span>
+          <span id="val-token-status" class="value mono">Loading...</span>
+        </div>
+        <div class="status-item">
+          <span class="label">AE Version</span>
+          <span id="val-app-version" class="value mono">—</span>
+        </div>
+        <div class="status-item">
+          <span class="label">Active Project</span>
+          <span id="val-project-name" class="value" title="No project loaded">—</span>
+        </div>
+        <div class="status-item">
+          <span class="label">Active Comp</span>
+          <span id="val-comp-name" class="value">—</span>
+        </div>
+        <div class="status-item">
+          <span class="label">Last Heartbeat</span>
+          <span id="val-heartbeat" class="value mono">Never</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="card active-command-card">
+      <div class="card-header">
+        <h2>Current Command</h2>
+        <span id="val-queue-state" class="queue-pill">Idle</span>
+      </div>
+      <div id="active-command-box" class="command-box empty">
+        No command currently executing.
+      </div>
+    </section>
+
+    <section class="card log-card">
+      <div class="card-header">
+        <h2>Operation History &amp; Errors</h2>
+        <button id="btn-clear-log" class="btn btn-small">Clear</button>
+      </div>
+      <div id="operation-log" class="log-list">
+        <div class="log-empty">Waiting for MCP requests from Antigravity...</div>
+      </div>
+    </section>
+
+    <footer class="panel-footer">
+      <details class="advanced-config">
+        <summary>Bridge Configuration &amp; Token Override</summary>
+        <div class="config-form">
+          <label for="input-state-path">Bridge State File</label>
+          <input id="input-state-path" type="text" value="C:/MCP/After Effect MCP/.bridge-state.json" />
+          <div class="config-row">
+            <div>
+              <label for="input-port">Port</label>
+              <input id="input-port" type="number" value="17892" min="1024" max="65535" />
+            </div>
+            <div class="flex-grow">
+              <label for="input-token">Token Override (optional)</label>
+              <input id="input-token" type="password" placeholder="Auto-loaded from .bridge-state.json" />
+            </div>
+          </div>
+          <button id="btn-apply-config" class="btn btn-secondary full-width">Apply &amp; Reconnect</button>
+        </div>
+      </details>
+    </footer>
+  </div>
+  <script src="panel.js"></script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+node_modules/
+.bridge-state.json
+docx_temp/
+docx_extracted.txt
+panel_debug.txt
+align_test.ps1
+read_docx.js
+*.wav
+*.log
+.DS_Store
+Thumbs.db

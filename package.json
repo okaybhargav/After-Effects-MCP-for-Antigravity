@@ -1,0 +1,20 @@
+{
+  "name": "after-effects-mcp",
+  "version": "1.0.0",
+  "description": "Local Model Context Protocol (MCP) server and CEP bridge for Adobe After Effects CC 2018 - 2025+ on Windows",
+  "main": "mcp-server/index.js",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "start": "node mcp-server/index.js",
+    "test": "node --test tests/validation.test.js tests/bridge.test.js",
+    "install-cep": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/install.ps1",
+    "diagnose": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/diagnose.ps1",
+    "uninstall-cep": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/uninstall.ps1"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "1.27.1"
+  },
+  "license": "MIT"
+}

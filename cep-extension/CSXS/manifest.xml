@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ExtensionManifest Version="7.0"
+                   ExtensionBundleId="com.antigravity.aftereffects.mcp"
+                   ExtensionBundleVersion="1.0.0"
+                   ExtensionBundleName="After Effects MCP Bridge"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <ExtensionList>
+    <Extension Id="com.antigravity.aftereffects.mcp.panel" Version="1.0.0" />
+  </ExtensionList>
+  <ExecutionEnvironment>
+    <HostList>
+      <!-- Compatible with Adobe After Effects CC 2018 (15.x) through 2025+ -->
+      <Host Name="AEFT" Version="[15.0,99.9]" />
+    </HostList>
+    <LocaleList>
+      <Locale Code="All" />
+    </LocaleList>
+    <RequiredRuntimeList>
+      <!-- CSXS 8.0+ compatible with CC 2018, CC 2019 (CSXS 9), CC 2020+, and 2025+ -->
+      <RequiredRuntime Name="CSXS" Version="8.0" />
+    </RequiredRuntimeList>
+  </ExecutionEnvironment>
+  <DispatchInfoList>
+    <Extension Id="com.antigravity.aftereffects.mcp.panel">
+      <DispatchInfo>
+        <Resources>
+          <MainPath>./index.html</MainPath>
+          <ScriptPath>./host/aftereffects.jsx</ScriptPath>
+          <CEFCommandLine>
+            <Parameter>--enable-nodejs</Parameter>
+            <Parameter>--allow-file-access</Parameter>
+            <Parameter>--allow-file-access-from-files</Parameter>
+            <Parameter>--disable-web-security</Parameter>
+            <Parameter>--disable-pinch</Parameter>
+            <Parameter>--high-dpi-support=1</Parameter>
+          </CEFCommandLine>
+        </Resources>
+        <Lifecycle>
+          <AutoVisible>true</AutoVisible>
+        </Lifecycle>
+        <UI>
+          <Type>Panel</Type>
+          <Menu>After Effects MCP Bridge</Menu>
+          <Geometry>
+            <Size>
+              <Width>420</Width>
+              <Height>560</Height>
+            </Size>
+            <MinSize>
+              <Width>300</Width>
+              <Height>360</Height>
+            </MinSize>
+            <MaxSize>
+              <Width>1200</Width>
+              <Height>1600</Height>
+            </MaxSize>
+          </Geometry>
+        </UI>
+      </DispatchInfo>
+    </Extension>
+  </DispatchInfoList>
+</ExtensionManifest>
